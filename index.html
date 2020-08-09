@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript Practice</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+      cursor: pointer;
+      transition: 1s;
+      margin: 0 8px 8px 0;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background-color: tomato;
+      cursor: pointer;
+      transition: 1s;
+      margin: 0 8px 8px 0;
+      text-align: center;
+      line-height: 100px;
+      border-radius: 50%;
+    }
+
+    .win {
+      background-color: pink;
+      border-radius: 50%;
+      transform: rotate(360deg);
+    }
+
+    .lose {
+      transform: scale(0.9);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- <div class="box" id="target1"></div>
+  <div class="box" id="target2"></div>
+  <div class="box" id="target3"></div> -->
+
+
+
+  <script>
+    'use strict'
+
+    // const traget1 = document.getElementById("target1");
+    // const traget2 = document.getElementById("target2");
+    // const traget3 = document.getElementById("target3");
+
+    // traget1.addEventListener("click", () => {
+    //   target1.classList.toggle("circle");
+    // });
+
+    // traget2.addEventListener("click", () => {
+    //   target2.classList.toggle("circle");
+    // });
+
+    // traget3.addEventListener("click", () => {
+    //   target3.classList.toggle("circle");
+    // });
+
+    const num = 10;
+    const winner = Math.floor(Math.random() * num); // 0 - 10
+
+    for (let i = 0; i < num; i++) {
+      const div = document.createElement("div");
+      div.classList.add("box");
+      // div.textContent = i;
+
+      div.addEventListener("click", () => {
+        // div.classList.toggle("circle");
+        if (winner === i) {
+          div.textContent = "大当たり!";
+          div.classList.add("win");
+        } else {
+          div.textContent = "ハズレ";
+          div.classList.add("lose");
+        }
+      });
+      document.body.appendChild(div);
+    }
+
+    const reload = document.createElement("div");
+    reload.classList.add("box1");
+    reload.textContent = "リセット";
+    reload.addEventListener("click", () => {
+      location.reload();
+    });
+
+    document.body.appendChild(reload);
+
+  </script>
+
+
+</body>
+
+</html>
